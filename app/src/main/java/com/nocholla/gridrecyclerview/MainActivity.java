@@ -1,5 +1,6 @@
 package com.nocholla.gridrecyclerview;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.nocholla.gridrecyclerview.adapter.GalleryGridAdapter;
+import com.nocholla.gridrecyclerview.fragment.SlideshowDialogFragment;
 import com.nocholla.gridrecyclerview.helper.GalleryGridSpacingItemDecoration;
 import com.nocholla.gridrecyclerview.model.Image;
 
@@ -55,7 +57,12 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putSerializable("images", images);
                 bundle.putInt("position", position);
 
-                Toast.makeText(MainActivity.this, "Image Clicked", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(MainActivity.this, "Image Clicked", Toast.LENGTH_SHORT).show();
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                SlideshowDialogFragment newFragment = SlideshowDialogFragment.newInstance();
+                newFragment.setArguments(bundle);
+                newFragment.show(ft, "slideshow");
 
             }
 
