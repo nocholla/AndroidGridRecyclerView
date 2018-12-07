@@ -1,6 +1,7 @@
 package com.nocholla.gridrecyclerview.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.PagerAdapter;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.nocholla.gridrecyclerview.MainActivity;
 import com.nocholla.gridrecyclerview.model.Image;
 import com.nocholla.gridrecyclerview.R;
 
@@ -120,12 +122,12 @@ public class SlideshowDialogFragment extends DialogFragment {
                     .into(imageViewPreview);
 
             // Begin Close Share
-            closeImage = (ImageButton) view.findViewById(R.id.closeImageButton);
+            closeImage = view.findViewById(R.id.closeImageButton);
             closeImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //startActivity(new Intent(getActivity(), imageActivity.class));
-                    getActivity().onBackPressed();
+                    startActivity(new Intent(getActivity(), MainActivity.class));
+                    //getActivity().onBackPressed();
                 }
             });
             // End Close Share
