@@ -2,6 +2,7 @@ package com.nocholla.gridrecyclerview.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -10,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.nocholla.gridrecyclerview.R;
 import com.nocholla.gridrecyclerview.model.Image;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -46,9 +49,22 @@ public class GalleryGridAdapter extends RecyclerView.Adapter<GalleryGridAdapter.
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Image image = images.get(position);
 
-        Glide.with(mContext).load(image.getUrl())
-                .thumbnail(0.5f)
+        String logoLink =  image.getUrl();
+        Log.d("DEBUG IMAGE URL", logoLink);
+
+//        Glide.with(mContext).load(image.getUrl())
+//                .thumbnail(0.5f)
+//                .into(holder.thumbnail);
+
+//        Glide.with(holder.thumbnail.getContext())
+//                .load(logoLink)
+//                .into(holder.thumbnail);
+
+        Picasso.with(mContext)
+                .load(logoLink)
+                .placeholder(android.R.drawable.ic_btn_speak_now)
                 .into(holder.thumbnail);
+
     }
 
     @Override
