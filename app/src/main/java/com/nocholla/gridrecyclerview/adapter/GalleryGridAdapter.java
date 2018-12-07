@@ -52,14 +52,12 @@ public class GalleryGridAdapter extends RecyclerView.Adapter<GalleryGridAdapter.
         String logoLink =  image.getUrl();
         Log.d("DEBUG IMAGE URL", logoLink);
 
-//        Glide.with(mContext).load(image.getUrl())
-//                .thumbnail(0.5f)
-//                .into(holder.thumbnail);
-
+        // Glide Image Loader
 //        Glide.with(holder.thumbnail.getContext())
 //                .load(logoLink)
 //                .into(holder.thumbnail);
 
+        // Picasso Image Loader
         Picasso.with(mContext)
                 .load(logoLink)
                 .placeholder(android.R.drawable.ic_btn_speak_now)
