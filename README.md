@@ -1,4 +1,4 @@
-# EdurekaGridRecyclerView
+# Grid RecyclerView
 
 ![grid recyclerview 1](https://user-images.githubusercontent.com/801612/50357822-16b1ac80-050c-11e9-9539-5974ec026880.jpeg)
 
